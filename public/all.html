@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+		<h1>Data Selfie App</h1>
+		<p><a href="./index.html">data</a> | <a href="#">log</a></p>
+	</header>
+
+    <section id="list">
+
+    </section>
+
+
+
+    <script>
+        getData();
+        async function getData() {
+            const response = await fetch('/api');
+            const data = await response.json();
+            for (item of data) {
+                const root = document.createElement('div');
+                const container1 = document.createElement('div');
+                const container2 = document.createElement('div');
+                const hr = document.createElement('hr');
+                const date = document.createElement('h2');
+                const geo = document.createElement('h2');
+                const weather = document.createElement('p');
+                // const airQuality = document.createElement('div');
+                const mood = document.createElement('p');
+                
+                const dateString = new Date(item.timestamp).toLocaleString();
+                date.textContent = dateString;
+                geo.textContent = `${item.locationName}`;
+                weather.textContent = `weather: ${item.weather}`;
+                // airQuality.textContent = `air quality:  ${item.airQuality} µg/m³`;
+                mood.textContent = `mood: ${item.mood}`;
+                
+                container1.append(date, geo);
+                container2.append(hr, weather, mood);
+                root.append(container1, container2);
+                document.getElementById('list').append(root);
+            }
+            console.log(data);
+        }
+    </script>
+</body>
+</html>

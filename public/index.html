@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeTrain Tutorial</title>
+	<!-- css -->
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <!-- leaflet.js -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+</head>
+
+<body>
+	<header>
+		<h1>Data Selfie App</h1>
+		<p><a href="#">data</a> | <a href="./all.html">log</a></p>
+	</header>
+	
+	<div class="location-container">
+		<div class="location-info">
+				<h2>Hello, <span id="location"></span>...</h2>
+				<h3>It is <span id="temperature"></span>°F with <span id="weather"></span>!</h3>
+				<div class="data">
+					<p>high: <span id="tempHigh"></span>° | low: <span id="tempLow"></span>°</p>
+					<p>air quality: <span id="aq"></span> µg/m&sup3</p>
+				</div>
+		</div>
+		<div id="myMap"></div>
+		<div class="user-input">
+			<input type="text" id="mood" name="mood" placeholder="what's goin on?">
+			<button id="submit-button">submit</button>
+		</div>
+	</div>
+
+
+    <script src="./app.js"></script>
+
+</body>
+
+</html>
